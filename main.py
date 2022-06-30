@@ -17,7 +17,7 @@ label = Label(window, background='#cdcdcd', font=('calibri', 20, 'bold'))
 
 
 # getting image path
-def upload():
+def getImage():
     ImagePath = easygui.fileopenbox()
     cartoonify(ImagePath)
 
@@ -65,7 +65,7 @@ def cartoonify(ImagePath):
 
     # creating save button
     saveBtn = Button(window, text='Save Image',
-                     command=lambda: save(ImagePath=ImagePath, ReSizedImage6=ReSizedImage6))
+                     command=lambda: saveImage(ImagePath=ImagePath, ReSizedImage6=ReSizedImage6))
     saveBtn.configure(background='#364156', foreground='white',
                       font=('calibri', 10, 'bold'))
     saveBtn.pack(side=TOP, pady=50)
@@ -74,7 +74,7 @@ def cartoonify(ImagePath):
 
 
 # saving the cartoonified image
-def save(ReSizedImage6, ImagePath):
+def saveImage(ReSizedImage6, ImagePath):
     newName = 'cartoonified_Image'
     path1 = os.path.dirname(ImagePath)
     extension = os.path.splitext(ImagePath)[1]
@@ -86,7 +86,7 @@ def save(ReSizedImage6, ImagePath):
 
 # creating upload button
 uploadBtn = Button(window, text='Cartoonify an Image',
-                   command=upload, padx=10, pady=5)
+                   command=getImage, padx=10, pady=5)
 uploadBtn.configure(background='#364156', foreground='white',
                     font=('calibri', 10, 'bold'))
 uploadBtn.pack(side=TOP, pady=50)
